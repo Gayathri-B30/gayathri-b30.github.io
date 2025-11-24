@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gayathri B. | Web Wizard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #38bdf8;
+        border-radius: 4px;
+      }
+
+      .glass {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .text-glow {
+        text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+      }
+      .magnetic-btn {
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      #particles-js {
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+      }
+
+      .typing {
+        border-right: 3px solid #38bdf8;
+        animation: blink 0.8s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #38bdf8;
+        }
+      }
+
+      .project-3d {
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform: perspective(1000px) rotateX(0) rotateY(0);
+      }
+      .project-3d:hover {
+        transform: perspective(1000px) rotateX(10deg) rotateY(10deg)
+          translateZ(50px);
+      }
+
+      .orb {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+        animation: float 6s infinite ease-in-out;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .text-glow-soft {
+        text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+      }
+      .typing-soft {
+        border-right: 2px solid transparent;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes pulse-slow {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+        }
+        50% {
+          transform: translateY(-30px) translateX(20px);
+        }
+      }
+      @keyframes float-delayed {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+        }
+        50% {
+          transform: translateY(30px) translateX(-20px);
+        }
+      }
+      @keyframes float-slow {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.1);
+        }
+      }
+      .animate-float {
+        animation: float 20s infinite ease-in-out;
+      }
+      .animate-float-delayed {
+        animation: float-delayed 24s infinite ease-in-out;
+      }
+      .animate-float-slow {
+        animation: float-slow 30s infinite ease-in-out;
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 8s infinite;
+      }
+
+      .animate-float-slight {
+        animation: floatSlight 8s ease-in-out infinite;
+      }
+      @keyframes floatSlight {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin 30s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hire-btn {
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+      }
+
+      .hire-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 35px rgba(56, 189, 248, 0.8);
+      }
+
+      .hire-btn::before {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        border-radius: 50%;
+        border: 2px solid rgba(56, 189, 248, 0.5);
+        opacity: 0.5;
+        animation: pulseRing 2.2s infinite ease-out;
+      }
+
+      @keyframes pulseRing {
+        0% {
+          transform: scale(0.7);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.6);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-gray-200">
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    <div id="cursor" class="cursor"></div>
+
+    <!-- Custom Cursor Trail Script -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#38bdf8" },
+          shape: { type: "circle" },
+          opacity: { value: 0.4, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#38bdf8",
+            opacity: 0.2,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: true, mode: "repulse" }, resize: true },
+        },
+      });
+
+
+      const cursor = document.getElementById("cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+        requestAnimationFrame(() => {
+          const trail = document.createElement("div");
+          trail.classList.add("cursor-trail");
+          trail.style.left = e.clientX + "px";
+          trail.style.top = e.clientY + "px";
+          document.body.appendChild(trail);
+          setTimeout(() => trail.remove(), 600);
+        });
+      });
+    </script>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass border-b border-sky-500/20">
+      <nav
+        class="container mx-auto px-6 py-5 flex justify-between items-center"
+      >
+        <a href="#" class="text-3xl font-bold text-white"
+          >G<span class="text-sky-400">B</span>.</a
+        >
+        <div class="hidden md:flex space-x-10 text-sm font-medium">
+          <a href="#about" class="hover:text-sky-400 transition">About</a>
+          <a href="#experience" class="hover:text-sky-400 transition"
+            >Experience</a
+          >
+          <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+          <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
+        </div>
+        <a
+          href="#contact"
+          class="hire-btn group relative px-8 py-3 font-bold rounded-full text-sky-300 border border-sky-500/80 bg-sky-500/10 backdrop-blur-xl transition-all duration-500 overflow-hidden"
+        >
+          <span class="relative z-10">Hire Me</span>
+
+          <span
+            class="absolute inset-0 rounded-full bg-sky-500/20 opacity-0 group-hover:opacity-100 transition duration-500"
+          ></span>
+
+          <span
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-sky-400/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+          ></span>
+        </a>
+      </nav>
+    </header>
+
+    <section
+      class="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+    >
+      
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950/30 to-black"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(14,165,233,0.08),transparent_70%)] animate-pulse-slow"
+      ></div>
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          class="absolute w-96 h-96 -top-48 -left-48 bg-sky-500/10 rounded-full blur-3xl animate-float"
+        ></div>
+        <div
+          class="absolute w-80 h-80 -bottom-40 -right-40 bg-cyan-500/10 rounded-full blur-3xl animate-float-delayed"
+        ></div>
+      </div>
+
+      <div class="relative z-10 px-6 max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+      
+          <div class="relative w-full md:w-1/2 opacity-0" id="intro-card">
+          
+            <div
+              class="absolute -inset-10 bg-sky-500/10 blur-3xl rounded-full animate-pulse-slow"
+            ></div>
+
+            <div
+              class="relative glass p-10 rounded-3xl border border-sky-500/30 shadow-2xl backdrop-blur-xl"
+            >
+             
+              <div
+                class="absolute -top-6 -left-6 text-sky-400 text-4xl animate-float-slight opacity-60"
+              >
+                <i class="fas fa-code"></i>
+              </div>
+              <div
+                class="absolute -bottom-6 -right-6 text-cyan-400 text-4xl animate-float-delayed opacity-60"
+              >
+                <i class="fas fa-terminal"></i>
+              </div>
+
+              <h3
+                class="text-4xl md:text-4xl font-bold text-white mb-4 leading-tight"
+              >
+                Hi, I'm
+                <span class="text-sky-400 text-glow-soft">Gayathri B</span>
+              </h3>
+
+              <h2
+                class="text-2xl md:text-3xl font-light text-sky-300 mb-6 h-12"
+              >
+                <span id="role-typer"></span>
+              </h2>
+
+              <div
+                class="h-1 w-32 bg-gradient-to-r from-sky-400 to-cyan-300 rounded-full mb-8"
+              ></div>
+
+              <p
+                class="text-lg md:text-xl text-gray-300 max-w-md leading-relaxed"
+              >
+                Creating seamless, high-performance digital experiences with
+                elegant UI, clean backend logic, and a deep passion for
+                impactful design.
+              </p>
+            </div>
+          </div>
+
+          <!-- BUTTONS -->
+          <div
+            class="text-left md:w-1/2 opacity-0 translate-y-8"
+            id="buttons-wrap"
+          >
+            <p
+              class="text-lg md:text-xl text-gray-400 max-w-lg mb-12"
+              id="description"
+            >
+              Crafting elegant, high-performance digital experiences with
+              passion and precision.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row gap-6 opacity-0 translate-y-8"
+              id="buttons"
+            >
+              <a
+                href="#projects"
+                class="group relative px-9 py-4 bg-sky-500/10 border border-sky-500/50 text-sky-300 rounded-full font-medium text-lg backdrop-blur-xl overflow-hidden transition-all duration-500 hover:bg-sky-500/20 hover:border-sky-400"
+              >
+                <span class="relative z-10">Explore My Work</span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-sky-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                ></div>
+              </a>
+
+              <a
+                href="#contact"
+                class="px-9 py-4 border border-gray-700 text-gray-300 rounded-full font-medium text-lg backdrop-blur-xl transition-all duration-500 hover:border-sky-500/70 hover:text-sky-300"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-32 relative">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-20 text-white">
+          About Me
+        </h2>
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div data-aos="fade-right">
+            <p class="text-lg leading-relaxed text-gray-300">
+              A passionate Web Developer from Erode with a love for clean code,
+              blazing-fast performance, and pixel-perfect design. I build
+              solutions that users love and businesses trust.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                PHP
+              </div>
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                HTML
+              </div>
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                CSS
+              </div>
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                MySQL
+              </div>
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                CI
+              </div>
+              <div
+                class="orb flex items-center justify-center text-white font-bold text-xl"
+              >
+                GIT
+              </div>
+            </div>
+          </div>
+          <div
+            data-aos="fade-left"
+            class="glass p-10 rounded-3xl border border-sky-500/30 shadow-2xl"
+          >
+            <h3 class="text-3xl font-bold mb-8 text-sky-400">
+              Why Work With Me?
+            </h3>
+            <ul class="space-y-6 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-bolt text-sky-400 mr-4"></i> Lightning-fast,
+                optimized code
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-shield-alt text-sky-400 mr-4"></i> Secure &
+                scalable architecture
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-palette text-sky-400 mr-4"></i> Stunning,
+                modern UI/UX
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section
+      id="experience"
+      class="py-32 bg-slate-900/40 relative overflow-hidden"
+    >
+     
+      <div
+        class="absolute w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -top-20 -left-20 animate-float"
+      ></div>
+      <div
+        class="absolute w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl -bottom-20 -right-20 animate-float-delayed"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-5xl font-bold text-center mb-20 text-white">
+          Experience
+        </h2>
+
+        <div class="space-y-12">
+          
+          <div
+            class="experience-card glass p-10 rounded-3xl border border-sky-500/20 shadow-2xl hover:scale-[1.03] transition-all duration-700 relative overflow-hidden"
+          >
+            
+            <span
+              class="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-sky-500/30 via-cyan-400/20 to-sky-500/30 opacity-0 hover:opacity-100 transition duration-700 pointer-events-none"
+            ></span>
+
+            <div class="flex items-center gap-4 mb-4">
+              <i
+                class="fas fa-code text-sky-400 text-4xl animate-pulse-slow"
+              ></i>
+              <h3 class="text-2xl md:text-3xl font-bold text-white">
+                Web Developer – Kanavu Startup Village Pvt. Ltd
+              </h3>
+            </div>
+
+            <p class="text-sky-300 font-medium mb-6 text-lg">
+              Oct 19, 2023 – Present
+            </p>
+
+            <ul class="space-y-4 text-gray-300 text-lg leading-relaxed">
+              <li>
+                ✔ Built and maintained fast, responsive, mobile-friendly web
+                applications.
+              </li>
+              <li>
+                ✔ Developed full-stack modules using PHP, CodeIgniter, MySQL &
+                modern UI techniques.
+              </li>
+              <li>
+                ✔ Improved overall performance, loading speed, and UX stability
+                across projects.
+              </li>
+              <li>
+                ✔ Delivered timely fixes and enhancements, sustaining a 95%
+                client retention rate.
+              </li>
+              <li>
+                ✔ Implemented version control workflows and ensured secure
+                deployments using Git.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-32 bg-slate-900/50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-20 text-white">
+          Featured Projects
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- PROJECT 1 -->
+          <div
+            class="project-3d glass rounded-2xl overflow-hidden group cursor-pointer"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-sky-600 to-cyan-800 flex items-center justify-center text-6xl text-white"
+            >
+              <i class="fas fa-seedling"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Lolapin – Tree Adoption
+              </h3>
+              <p class="text-gray-400 mb-6">
+                Interactive tree adoption platform with map-based tree locating,
+                monitoring, and user-engagement optimizations.
+              </p>
+              <!-- <a href="#" class="text-sky-400 font-bold hover:underline"
+                >View Live →</a
+              > -->
+            </div>
+          </div>
+
+          <!-- PROJECT 2 -->
+          <div
+            class="project-3d glass rounded-2xl overflow-hidden group cursor-pointer"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-indigo-600 to-purple-800 flex items-center justify-center text-6xl text-white"
+            >
+              <i class="fas fa-hospital-user"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Santhosham – NRI Parental Care
+              </h3>
+              <p class="text-gray-400 mb-6">
+                Built modules for medical records, appointments, dynamic
+                scheduling and elderly care workflows using PHP & MySQL.
+              </p>
+              <!-- <a href="#" class="text-sky-400 font-bold hover:underline"
+                >Case Study →</a
+              > -->
+            </div>
+          </div>
+
+          <!-- PROJECT 3 -->
+          <div
+            class="project-3d glass rounded-2xl overflow-hidden group cursor-pointer"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-rose-600 to-pink-800 flex items-center justify-center text-6xl text-white"
+            >
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Kanavu.Help – Fundraising Platform
+              </h3>
+              <p class="text-gray-400 mb-6">
+                Donation platform supporting education & emergency campaigns
+                with secure payments and real-time tracking.
+              </p>
+              <!-- <a href="#" class="text-sky-400 font-bold hover:underline"
+                >View Platform →</a
+              > -->
+            </div>
+          </div>
+
+          <!-- PROJECT 4 -->
+          <div
+            class="project-3d glass rounded-2xl overflow-hidden group cursor-pointer"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-green-600 to-emerald-800 flex items-center justify-center text-6xl text-white"
+            >
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Land & Property Listing System
+              </h3>
+              <p class="text-gray-400 mb-6">
+                Dynamic real estate portal with seller listings, buyer
+                requirement forms, and admin-moderated communication.
+              </p>
+              <!-- <a href="#" class="text-sky-400 font-bold hover:underline"
+                >View Details →</a
+              > -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 relative overflow-hidden">
+      <!-- Floating Background Orbs -->
+      <div
+        class="absolute w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -top-28 -left-20 animate-float"
+      ></div>
+      <div
+        class="absolute w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl -bottom-28 -right-16 animate-float-delayed"
+      ></div>
+
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h2
+          class="text-5xl font-bold mb-10 text-white opacity-0 translate-y-10"
+          id="contact-title"
+        >
+          Let's Build Something Amazing
+        </h2>
+
+        <div
+          class="contact-card glass p-10 inline-block rounded-3xl border border-sky-500/20 shadow-2xl backdrop-blur-xl relative overflow-hidden opacity-0 translate-y-10"
+        >
+          <!-- Glowing hover border -->
+          <span
+            class="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-br from-sky-500/40 via-cyan-400/20 to-sky-500/40 opacity-0 hover:opacity-100 transition duration-700 pointer-events-none"
+          ></span>
+
+          <p class="text-xl text-sky-300 font-semibold mb-6">Say Hello 👋</p>
+
+          <div class="space-y-4 text-gray-300 text-lg">
+            <a
+              href="mailto:gayathri3092002@gmail.com"
+              class="flex items-center gap-3 hover:text-sky-400 transition group"
+            >
+              <i
+                class="fas fa-envelope text-sky-400 text-xl transform group-hover:-translate-y-1 transition"
+              ></i>
+              <span>gayathri3092002@gmail.com</span>
+            </a>
+
+            <a
+              href="tel:+917695934356"
+              class="flex items-center gap-3 hover:text-sky-400 transition group"
+            >
+              <i
+                class="fas fa-phone text-sky-400 text-xl transform group-hover:-translate-y-1 transition"
+              ></i>
+              <span>+91 76959 34356</span>
+            </a>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Aval+Poondurai,+Erode"
+              target="_blank"
+              class="flex items-center gap-3 hover:text-sky-400 transition group"
+            >
+              <i
+                class="fas fa-map-marker-alt text-sky-400 text-xl transform group-hover:-translate-y-1 transition"
+              ></i>
+              <span>Aval Poondurai, Erode</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/gayathri-balasubramaniam05"
+              target="_blank"
+              class="flex items-center gap-3 hover:text-sky-400 transition group"
+            >
+              <i
+                class="fab fa-linkedin text-sky-400 text-xl transform group-hover:-translate-y-1 transition"
+              ></i>
+              <span>linkedin.com/in/gayathri-balasubramaniam05</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.from("#contact-title", {
+        scrollTrigger: {
+          trigger: "#contact-title",
+          start: "top 85%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      gsap.to(".contact-card", {
+        scrollTrigger: {
+          trigger: ".contact-card",
+          start: "top 85%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.4,
+        ease: "power3.out",
+      });
+    </script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from("#about > div > div", {
+        scrollTrigger: { trigger: "#about", start: "top 70%" },
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.3,
+      });
+
+      gsap.utils.toArray(".project-3d").forEach((card) => {
+        gsap.from(card, {
+          scrollTrigger: { trigger: card, start: "top 80%" },
+          y: 150,
+          opacity: 0,
+          rotationX: -30,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      });
+
+      document.querySelectorAll(".magnetic-btn").forEach((btn) => {
+        btn.addEventListener("mousemove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener("mouseout", () => {
+          btn.style.transform = "translate(0,0)";
+        });
+      });
+    </script>
+
+    <script>
+      gsap.from(".experience-card", {
+        scrollTrigger: {
+          trigger: ".experience-card",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 80,
+        duration: 1.4,
+        ease: "power3.out",
+      });
+
+      document.querySelectorAll(".experience-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left - rect.width / 2) / 40;
+          const y = (e.clientY - rect.top - rect.height / 2) / 40;
+          card.style.transform = `rotateX(${y}deg) rotateY(${-x}deg) scale(1.03)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+        });
+      });
+    </script>
+
+    <script>
+      const roles = [
+        "Web Developer",
+        "UI/UX Enthusiast",
+        "Creative Thinker",
+        "Code Crafter",
+        "Problem Solver",
+      ];
+
+      let roleIndex = 0,
+        charIndex = 0,
+        isDeleting = false;
+
+      function typeRole() {
+        const current = roles[roleIndex];
+        const el = document.getElementById("role-typer");
+
+        if (!isDeleting) {
+          el.textContent = current.slice(0, ++charIndex);
+          if (charIndex === current.length) {
+            isDeleting = true;
+            setTimeout(typeRole, 1600);
+            return;
+          }
+        } else {
+          el.textContent = current.slice(0, --charIndex);
+          if (charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+          }
+        }
+        setTimeout(typeRole, isDeleting ? 60 : 100);
+      }
+
+      typeRole();
+    </script>
+
+    <script>
+      gsap
+        .timeline({
+          defaults: { ease: "power3.out", duration: 1.4 },
+        })
+        .to("#intro-card", {
+          opacity: 1,
+          y: 0,
+          duration: 1.8,
+          ease: "power3.out",
+        })
+        .to("#description", { opacity: 1, y: 0 }, "-=1.0")
+        .to("#buttons-wrap", { opacity: 1, y: 0 }, "-=1.0")
+        .to("#buttons", { opacity: 1, y: 0 }, "-=1.2");
+    </script>
+
+    
+ 
+    <script>
+    
+      gsap
+        .timeline({
+          defaults: { ease: "power3.out", duration: 1.4 },
+        })
+        .to("#line1", { opacity: 1, y: 0, delay: 0.5 })
+        .to("#description", { opacity: 1, y: 0 }, "-=0.8")
+        .to(
+          "#photo-reveal",
+          { opacity: 1, duration: 1.8, scale: 1, ease: "elastic.out(1, 0.8)" },
+          "-=1.5"
+        )
+        .to("#buttons", { opacity: 1, y: 0 }, "-=0.8");
+
+     
+      const texts = [
+        "Web Developer",
+        "UI/UX Enthusiast",
+        "Performance Artist",
+        "Code Poet",
+      ];
+      let i = 0,
+        j = 0,
+        forward = true;
+      const el = document.getElementById("typewriter");
+
+      function type() {
+        if (forward) {
+          el.textContent = texts[i].slice(0, ++j);
+          if (j === texts[i].length) {
+            forward = false;
+            setTimeout(type, 2000);
+          } else setTimeout(type, 80);
+        } else {
+          el.textContent = texts[i].slice(0, --j);
+          if (j === 0) {
+            forward = true;
+            i = (i + 1) % texts.length;
+            setTimeout(type, 500);
+          } else setTimeout(type, 50);
+        }
+      }
+      setTimeout(type, 1200);
+    </script>
+
+  </body>
+</html>
